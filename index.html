@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Agung Dwi Cahyono — Portfolio & Blog</title>
+  <meta name="description" content="Portofolio & tulisan Agung Dwi Cahyono (Pak Ustadz Hacking) — cybersecurity, forensics, write-ups." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1726;
+      --muted:#9aa4bd;
+      --accent1:#7c5cff;
+      --accent2:#ff6b6b;
+      --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial; background:linear-gradient(180deg,var(--bg),#071023); color:#e9f0fb}
+    a{color:inherit}
+    .wrap{max-width:1100px; margin:32px auto; padding:20px;}
+    header{display:flex;align-items:center;gap:18px}
+    .avatar{width:72px;height:72px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;background:linear-gradient(135deg,var(--accent1),var(--accent2));box-shadow:0 8px 30px rgba(124,92,255,0.12)}
+    h1{margin:0;font-size:26px}
+    p.lead{margin:4px 0 0;color:var(--muted);font-size:14px}
+
+    main{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:20px}
+    .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:12px}
+    .card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .tag{display:inline-block;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:12px;color:var(--muted);margin-right:6px}
+
+    aside{position:relative}
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .search{width:100%;padding:10px;border-radius:10px;border:0;background:rgba(255,255,255,0.02);color:#e9f0fb}
+    .post-list{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+    .post-item{padding:10px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
+    .post-title{font-weight:700}
+    .muted{color:var(--muted);font-size:13px}
+
+    footer{margin-top:22px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+
+    /* modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;z-index:50}
+    .modal{max-width:880px;width:94%;background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 20px 60px rgba(2,6,23,0.6);color:#eaf3ff}
+    .close-btn{background:none;border:0;color:var(--muted);cursor:pointer;padding:6px 8px;border-radius:8px}
+    .meta-row{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:13px;margin-top:8px}
+
+    /* responsive */
+    @media (max-width:980px){
+      main{grid-template-columns:1fr; padding-bottom:40px}
+      aside{order:-1}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="avatar" aria-hidden="true">AC</div>
+      <div>
+        <h1>Agung Dwi Cahyono</h1>
+        <p class="lead">Pak Ustadz Hacking — Cybersecurity • Forensics • Writing</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Left: hero + projects + about -->
+      <section class="hero" aria-labelledby="hero-title">
+        <h2 id="hero-title">Halo — selamat datang</h2>
+        <p class="muted" style="margin-top:6px">
+          Saya menulis tentang keamanan siber, melakukan write-up CTF, dan mengembangkan materi pelatihan. Di bawah ada beberapa proyek dan tulisan terbaru.
+        </p>
+
+        <div style="margin-top:16px">
+          <h3 style="margin:0 0 8px">Proyek & case studies</h3>
+          <div class="projects" id="projects">
+            <article class="card">
+              <div style="display:flex;justify-content:space-between;align-items:start">
+                <div>
+                  <div style="font-weight:800">Personal Branding Agency</div>
+                  <div class="muted" style="margin-top:6px;font-size:13px">Strategi dan website untuk client (target: wanita berpotensi).</div>
+                </div>
+                <div style="text-align:right">
+                  <div class="tag">Branding</div>
+                </div>
+              </div>
+              <div style="margin-top:10px"><a href="#" class="muted" aria-label="detail">Lihat detail →</a></div>
+            </article>
+
+            <article class="card">
+              <div style="display:flex;justify-content:space-between;align-items:start">
+                <div>
+                  <div style="font-weight:800">CTF Write-up: Memory Lab</div>
+                  <div class="muted" style="margin-top:6px;font-size:13px">Analisis file win7.raw menggunakan Volatility 3.</div>
+                </div>
+                <div><div class="tag">Forensics</div></div>
+              </div>
+              <div style="margin-top:10px"><a href="#" class="muted">Lihat write-up →</a></div>
+            </article>
+
+            <article class="card">
+              <div style="display:flex;justify-content:space-between;align-items:start">
+                <div>
+                  <div style="font-weight:800">Active Directory Penetration Notes</div>
+                  <div class="muted" style="margin-top:6px;font-size:13px">Kerberoast, Rubeus, RiskySPN, Impacket — ringkasan lab.</div>
+                </div>
+                <div><div class="tag">AD</div></div>
+              </div>
+              <div style="margin-top:10px"><a href="#" class="muted">Baca ringkasan →</a></div>
+            </article>
+          </div>
+        </div>
+
+        <div style="margin-top:18px">
+          <h3 style="margin:0 0 8px">Tentang saya</h3>
+          <p class="muted">Saya berfokus pada forensik memori, Active Directory pentest, dan pembuatan materi pelatihan. Saya mengerjakan project, menulis technical write-ups, dan mengajar di lingkungan lab yang terkontrol.</p>
+        </div>
+      </section>
+
+      <!-- Right: posts + contact -->
+      <aside>
+        <div class="panel">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-weight:700">Tulisan Terbaru</div>
+            <div class="muted">2</div>
+          </div>
+
+          <div style="margin-top:10px">
+            <input id="search" class="search" placeholder="Cari tulisan, tag, atau kata kunci..." />
+          </div>
+
+          <div class="post-list" id="postList" style="margin-top:12px">
+            <!-- posts injected by JS -->
+          </div>
+
+          <div style="margin-top:12px;display:flex;gap:10px;align-items:center;justify-content:space-between">
+            <div class="muted">Statistik: <strong style="color:#fff">12</strong> proyek • <strong style="color:#fff">24</strong> tulisan</div>
+            <button id="newPostBtn" style="background:linear-gradient(90deg,var(--accent1),var(--accent2));border:0;padding:8px 10px;border-radius:10px;color:white;cursor:pointer">Tambah tulisan</button>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="panel" style="margin-top:10px">
+          <div style="font-weight:700;margin-bottom:8px">Hubungi saya</div>
+          <form id="contactForm">
+            <input required placeholder="Nama" style="width:100%;padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:#eaf3ff;margin-bottom:8px" />
+            <input required placeholder="Email" style="width:100%;padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:#eaf3ff;margin-bottom:8px" />
+            <textarea required placeholder="Pesan singkat" style="width:100%;padding:10px;border-radius:8px;border:0;background:rgba(255,255,255,0.02);color:#eaf3ff;margin-bottom:8px" rows="4"></textarea>
+            <div style="text-align:right"><button type="submit" style="padding:8px 12px;border-radius:10px;border:0;background:#3949ab;color:white;cursor:pointer">Kirim</button></div>
+          </form>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Agung Dwi Cahyono — Pak Ustadz Hacking</div>
+      <div class="muted">Built for training & portfolio</div>
+    </footer>
+  </div>
+
+  <!-- modal & backdrop -->
+  <div class="modal-backdrop" id="backdrop" role="dialog" aria-hidden="true">
+    <div class="modal" role="document" aria-modal="true" id="modal">
+      <div style="display:flex;justify-content:space-between;align-items:start">
+        <div>
+          <div id="modalTitle" style="font-weight:800;font-size:18px">Judul</div>
+          <div class="muted" id="modalMeta">Tanggal • Tag</div>
+        </div>
+        <div><button class="close-btn" id="closeModal">Tutup ✕</button></div>
+      </div>
+      <div id="modalContent" style="margin-top:12px;white-space:pre-wrap;color:#e6f1ff"></div>
+    </div>
+  </div>
+
+  <script>
+    // sample posts (edit/add as needed)
+    const posts = [
+      {
+        id: 'p1',
+        title: 'Write-up: Memory Lab "Poisoned"',
+        date: '2025-06-15',
+        tags: ['Forensics','Volatility'],
+        excerpt: 'Langkah demi langkah memecahkan kasus memory forensics pada file win7.raw menggunakan Volatility 3.',
+        content: 'Detail lengkap write-up:\\n\\n1) Setup environment\\n2) Tools: Volatility 3, Python\\n3) Analisa proses dan ekstraksi artifacts\\n4) Kesimpulan dan mitigasi'
+      },
+      {
+        id: 'p2',
+        title: 'Kerberoast: Practical Lab Notes',
+        date: '2025-10-02',
+        tags: ['AD','Kerberoast'],
+        excerpt: 'Ulasan alur Kerberoast dari enumerasi SPN sampai crack menggunakan Hashcat (PowerShell, Rubeus, Impacket).',
+        content: 'Ringkasan: gunakan Invoke-Kerberoast (perhatikan AMSI/EP), alternatif Rubeus, dan Impacket GetUserSPNs.\\nTips: sync waktu, bersihkan blank lines pada output, dan gunakan Server2016 jika PowerShell in-memory diblokir.'
+      }
+    ];
+
+    // render posts
+    const postList = document.getElementById('postList');
+    function renderPosts(filter=''){
+      postList.innerHTML = '';
+      const f = filter.trim().toLowerCase();
+      const filtered = posts.filter(p => {
+        return p.title.toLowerCase().includes(f) ||
+               p.excerpt.toLowerCase().includes(f) ||
+               p.tags.join(' ').toLowerCase().includes(f);
+      });
+      if(filtered.length === 0){
+        postList.innerHTML = '<div class="muted">Tidak ada tulisan ditemukan.</div>';
+        return;
+      }
+      filtered.forEach(p => {
+        const el = document.createElement('div');
+        el.className = 'post-item';
+        el.innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:start;gap:8px">
+            <div style="flex:1">
+              <div class="post-title">${p.title}</div>
+              <div class="muted" style="margin-top:6px">${p.date} • ${p.tags.join(', ')}</div>
+              <div style="margin-top:8px;color:var(--muted);font-size:14px">${p.excerpt}</div>
+            </div>
+            <div style="margin-left:8px;display:flex;flex-direction:column;gap:6px">
+              <button data-id="${p.id}" class="open-btn" style="background:none;border:0;color:#9fb4ff;cursor:pointer">Baca</button>
+              <button data-id="${p.id}" class="share-btn" style="background:none;border:0;color:var(--muted);cursor:pointer">Share</button>
+            </div>
+          </div>
+        `;
+        postList.appendChild(el);
+      });
+    }
+
+    renderPosts();
+
+    // search
+    document.getElementById('search').addEventListener('input', (e)=>{
+      renderPosts(e.target.value);
+    });
+
+    // modal logic
+    const backdrop = document.getElementById('backdrop');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalMeta = document.getElementById('modalMeta');
+    const modalContent = document.getElementById('modalContent');
+    const closeModal = document.getElementById('closeModal');
+
+    function openModal(postId){
+      const p = posts.find(x => x.id === postId);
+      if(!p) return;
+      modalTitle.textContent = p.title;
+      modalMeta.textContent = p.date + ' • ' + p.tags.join(', ');
+      modalContent.textContent = p.content;
+      backdrop.style.display = 'flex';
+      backdrop.setAttribute('aria-hidden','false');
+    }
+    function hideModal(){
+      backdrop.style.display = 'none';
+      backdrop.setAttribute('aria-hidden','true');
+    }
+
+    document.addEventListener('click', (e) => {
+      if(e.target.matches('.open-btn')) openModal(e.target.dataset.id);
+      if(e.target.matches('.share-btn')) {
+        const id = e.target.dataset.id;
+        const p = posts.find(x => x.id === id);
+        navigator.clipboard?.writeText(window.location.href + '#post-' + id).then(()=>{
+          alert('Link postingan disalin ke clipboard');
+        }, ()=> alert('Gagal menyalin link'));
+      }
+    });
+
+    closeModal.addEventListener('click', hideModal);
+    backdrop.addEventListener('click', (e)=>{ if(e.target === backdrop) hideModal() });
+
+    // new post button (simple prompt-based add for local demo)
+    document.getElementById('newPostBtn').addEventListener('click', ()=>{
+      const title = prompt('Judul tulisan (demo):');
+      if(!title) return;
+      const excerpt = prompt('Ringkasan singkat:') || '';
+      const content = prompt('Isi tulisan (plain text):') || '';
+      const tags = prompt('Tags (pisah koma):') || '';
+      const id = 'p'+(Date.now());
+      posts.unshift({ id, title, date: new Date().toISOString().slice(0,10), tags: tags.split(',').map(s=>s.trim()).filter(Boolean), excerpt, content });
+      renderPosts();
+      alert('Tulisan baru ditambahkan (lokal, tidak tersimpan permanen).');
+    });
+
+    // contact form dummy
+    document.getElementById('contactForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      alert('Form dummy: gunakan email asli untuk kontak. (Demo only)');
+      e.target.reset();
+    });
+
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+  </script>
+</body>
+</html>
