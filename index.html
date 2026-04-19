@@ -3,79 +3,136 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Agung Dwi Cahyono — Cybersecurity Portfolio</title>
+
+<title>Agung Dwi Cahyono</title>
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin:0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
-  background:#0f172a;
-  color:#e2e8f0;
+:root{
+  --bg:#020617;
+  --card:#0b1120;
+  --text:#e2e8f0;
+  --muted:#64748b;
+  --accent:#38bdf8;
 }
 
-.container {
-  max-width:800px;
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter, sans-serif;
+}
+
+.container{
+  max-width:850px;
   margin:60px auto;
   padding:20px;
 }
 
-h1 { margin-bottom:5px; }
-p { color:#94a3b8; }
+h1{
+  margin:0;
+  font-size:28px;
+}
 
-.section {
+.subtitle{
+  color:var(--muted);
+  margin-top:5px;
+}
+
+.section{
   margin-top:40px;
 }
 
-.badge {
+.card{
+  background:var(--card);
+  border:1px solid #1e293b;
+  padding:18px;
+  border-radius:8px;
+}
+
+.badge{
   display:inline-block;
-  background:#1e293b;
-  padding:6px 10px;
+  border:1px solid #1e293b;
+  padding:5px 10px;
   border-radius:6px;
   margin-right:6px;
   font-size:13px;
+  font-family:"JetBrains Mono", monospace;
 }
 
-.button {
+.button{
   display:inline-block;
   margin-top:10px;
   padding:10px 16px;
-  background:#2563eb;
-  color:white;
-  text-decoration:none;
+  border:1px solid #1e293b;
   border-radius:6px;
+  text-decoration:none;
+  color:var(--accent);
+  font-family:"JetBrains Mono", monospace;
 }
 
-a { color:#60a5fa; text-decoration:none; }
+.button:hover{
+  background:#0b1120;
+}
+
+.terminal{
+  font-family:"JetBrains Mono", monospace;
+  background:#020617;
+  border:1px solid #1e293b;
+  padding:12px;
+  border-radius:6px;
+  margin-top:10px;
+  font-size:14px;
+}
+
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
 <h1>Agung Dwi Cahyono</h1>
-<p>Cybersecurity Practitioner — Penetration Testing, Active Directory, Memory Forensics</p>
+<p class="subtitle">Cybersecurity Practitioner — Pentesting • Active Directory • Forensics</p>
 
-<div class="section">
-<h2>Tentang</h2>
+<div class="section card">
+<h2>About</h2>
 <p>
-Berfokus pada penetration testing, Active Directory exploitation, dan memory forensics.
-Aktif menulis technical write-up dan melakukan riset di lingkungan lab.
+Focused on penetration testing, Active Directory exploitation, and memory forensics.
+Actively writing technical write-ups and conducting lab-based research.
 </p>
 </div>
 
-<div class="section">
-<h2>Sertifikasi</h2>
+<div class="section card">
+<h2>Certifications</h2>
 <div class="badge">CPENT v2</div>
 <div class="badge">CRTA</div>
 </div>
 
-<div class="section">
-<h2>Tulisan</h2>
-<p>Dokumentasi write-up, lab notes, dan riset teknis.</p>
+<div class="section card">
+<h2>Lab Focus</h2>
 
-<a class="button" href="articles.html">Lihat Artikel</a>
+<div class="terminal">
+$ skills --list<br>
+- Active Directory Attacks<br>
+- Web Exploitation<br>
+- Memory Forensics<br>
+- Red Team Labs
 </div>
 
 </div>
+
+<div class="section card">
+<h2>Articles</h2>
+<p class="subtitle">Technical write-ups and research notes.</p>
+
+<a href="articles.html" class="button">
+→ view articles
+</a>
+</div>
+
+</div>
+
 </body>
 </html>
